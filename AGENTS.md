@@ -71,7 +71,7 @@ These are the most error-prone part of the project. Follow them exactly.
   - flour = total weight / (1 + hydration + salt% + yeast%)
 - **Sourdough:**
   - starter % is relative to **total flour**, including the flour inside the starter
-  - starter hydration defaults to 100%
+  - starter hydration defaults to 50%
   - starter flour = starter / (1 + starter hydration)
   - starter water = starter × starter hydration / (1 + starter hydration)
   - added flour = total flour − starter flour

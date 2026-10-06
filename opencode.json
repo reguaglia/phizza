@@ -5,7 +5,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama",
       "options": { "baseURL": "http://localhost:11434/v1" },
-      "models": { "qwen3-coder:30b": { "name": "Qwen3 Coder 30B" } }
+      "models": { "qwen3-coder:30b-64k": { "name": "Qwen3 Coder 30B 64K" } }
     }
   }
 }
