@@ -35,14 +35,14 @@ pnpm dev
 
 ### Scripts
 
-| Command          | Description                     |
-| ---------------- | ------------------------------- |
-| `pnpm dev`       | Start the development server    |
-| `pnpm build`     | Create a production build       |
-| `pnpm test`      | Run the test suite              |
-| `pnpm lint`      | Lint the code with ESLint       |
-| `pnpm format`    | Format the code with Prettier   |
-| `pnpm typecheck` | Type-check with `tsc --noEmit`  |
+| Command          | Description                    |
+| ---------------- | ------------------------------ |
+| `pnpm dev`       | Start the development server   |
+| `pnpm build`     | Create a production build      |
+| `pnpm test`      | Run the test suite             |
+| `pnpm lint`      | Lint the code with ESLint      |
+| `pnpm format`    | Format the code with Prettier  |
+| `pnpm typecheck` | Type-check with `tsc --noEmit` |
 
 ## How it works
 
