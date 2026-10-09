@@ -21,7 +21,7 @@ License: GPL-3.0.
 
 ## Stack
 
-React, Vite, TypeScript (strict mode), pnpm, CSS Modules, Vitest, ESLint, Prettier. Deployed to GitHub Pages.
+React, Vite, TypeScript (strict mode), pnpm, CSS Modules, Vitest with React Testing Library (jsdom), ESLint, Prettier. Deployed to GitHub Pages.
 
 ## Commands
 
@@ -30,8 +30,10 @@ Always use **pnpm**. Never use npm or yarn, and never commit `package-lock.json`
 ```
 pnpm install      # install dependencies
 pnpm dev          # start the dev server
-pnpm build        # production build
-pnpm test         # run Vitest
+pnpm build        # type-check and build for production
+pnpm preview      # serve the production build locally
+pnpm test         # run Vitest once
+pnpm test:watch   # run Vitest in watch mode
 pnpm lint         # run ESLint
 pnpm format       # run Prettier
 pnpm typecheck    # tsc --noEmit
@@ -44,10 +46,14 @@ pnpm typecheck    # tsc --noEmit
 ```
 src/
   core/         Pure calculation logic. No React, no DOM. Fully unit-tested.
-  components/   React components, each with its own *.module.css
+  components/   React components, each with its own *.module.css, plus small
+                helper modules (format.ts, parseNumber.ts)
+  test/         Vitest setup (jsdom, jest-dom matchers)
   strings.ts    ALL user-facing Italian text
   App.tsx
   main.tsx
+
+Tests are colocated with the code they cover: *.test.ts / *.test.tsx.
 ```
 
 ## Code conventions
@@ -87,6 +93,7 @@ These are the most error-prone part of the project. Follow them exactly.
 - Commits follow **Conventional Commits**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`, `build`. Optional scope, imperative mood, subject under 72 characters, for example `feat(core): add sourdough calculation`.
 - One logical change per PR. The PR description says what changed, why, and how it was tested.
 - Before opening a PR, run `pnpm lint && pnpm typecheck && pnpm test && pnpm build`. Everything must pass.
+- CI (`.github/workflows/ci.yml`) runs the same four checks on every PR. Merging into `main` triggers `.github/workflows/deploy.yml`, which re-runs the checks and deploys to GitHub Pages.
 
 ## Requires explicit human approval
 

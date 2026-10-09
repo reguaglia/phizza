@@ -2,7 +2,7 @@
 
 A pizza dough calculator. Enter the number of pizzas, dough ball weight and hydration, and get exact amounts of flour, water, salt and yeast or sourdough starter. No more guessing by eye: here science rules (and so does the oven).
 
-**Live demo:** `https://<your-username>.github.io/phizza/`
+**Live demo:** https://reguaglia.github.io/phizza/
 
 > The app interface is in Italian. Code, comments and documentation are in English.
 
@@ -17,7 +17,7 @@ A pizza dough calculator. Enter the number of pizzas, dough ball weight and hydr
 
 - [React](https://react.dev/) + [Vite](https://vitejs.dev/) + TypeScript (strict)
 - CSS Modules
-- [Vitest](https://vitest.dev/) for tests
+- [Vitest](https://vitest.dev/) + React Testing Library (jsdom) for tests
 - ESLint + Prettier
 - pnpm
 - GitHub Pages for hosting
@@ -27,7 +27,7 @@ A pizza dough calculator. Enter the number of pizzas, dough ball weight and hydr
 Requirements: a recent Node.js LTS and [pnpm](https://pnpm.io/).
 
 ```bash
-git clone https://github.com/<your-username>/phizza.git
+git clone https://github.com/reguaglia/phizza.git
 cd phizza
 pnpm install
 pnpm dev
@@ -35,14 +35,16 @@ pnpm dev
 
 ### Scripts
 
-| Command          | Description                    |
-| ---------------- | ------------------------------ |
-| `pnpm dev`       | Start the development server   |
-| `pnpm build`     | Create a production build      |
-| `pnpm test`      | Run the test suite             |
-| `pnpm lint`      | Lint the code with ESLint      |
-| `pnpm format`    | Format the code with Prettier  |
-| `pnpm typecheck` | Type-check with `tsc --noEmit` |
+| Command           | Description                              |
+| ----------------- | ---------------------------------------- |
+| `pnpm dev`        | Start the development server             |
+| `pnpm build`      | Type-check and create a production build |
+| `pnpm preview`    | Serve the production build locally       |
+| `pnpm test`       | Run the test suite once                  |
+| `pnpm test:watch` | Run the tests in watch mode              |
+| `pnpm lint`       | Lint the code with ESLint                |
+| `pnpm format`     | Format the code with Prettier            |
+| `pnpm typecheck`  | Type-check with `tsc --noEmit`           |
 
 ## How it works
 
@@ -75,10 +77,14 @@ If the added flour or water would be negative, the app shows an error instead of
 ```
 src/
   core/         Pure calculation logic (no React, no DOM), fully unit-tested
-  components/   React components with their CSS Modules
+  components/   React components with their CSS Modules, plus small helpers
+                (format.ts, parseNumber.ts)
+  test/         Vitest setup (jsdom + jest-dom)
   strings.ts    All user-facing Italian text
   App.tsx
   main.tsx
+
+Tests live next to the code they cover, as *.test.ts / *.test.tsx files.
 ```
 
 ## Deployment
@@ -87,7 +93,7 @@ The app is published on GitHub Pages. Vite is configured with `base: '/phizza/'`
 
 ## AI-managed repository
 
-This repository is developed and maintained by AI agents running [opencode](https://opencode.ai/) with qwen3-coder. Agents follow the rules in [AGENTS.md](./AGENTS.md):
+This repository is developed and maintained by AI agents running [opencode](https://opencode.ai/) with the Big Pickle model. Agents follow the rules in [AGENTS.md](./AGENTS.md):
 
 - They work on branches and open pull requests, never pushing directly to `main`
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/)
