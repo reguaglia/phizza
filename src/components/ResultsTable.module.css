@@ -46,6 +46,10 @@
   border-bottom: 0;
 }
 
-.table tr:last-child td {
+.total th {
+  color: var(--color-text);
+}
+
+.total td {
   color: var(--color-accent);
 }
