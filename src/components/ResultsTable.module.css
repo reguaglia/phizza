@@ -6,10 +6,16 @@
 
 .heading {
   font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .subheading {
-  font-size: 1rem;
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 .table {
@@ -19,15 +25,27 @@
 
 .table th,
 .table td {
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .table th {
   text-align: left;
   font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .table td {
   text-align: right;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
+}
+
+.table tr:last-child th,
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tr:last-child td {
+  color: var(--color-accent);
 }
