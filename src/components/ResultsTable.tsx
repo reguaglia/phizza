@@ -7,9 +7,17 @@ type ResultsTableProps =
   | { mode: "direct"; result: DirectDoughResult }
   | { mode: "sourdough"; result: SourdoughDoughResult };
 
-function Row({ label, value }: { label: string; value: number }) {
+function Row({
+  label,
+  value,
+  total = false,
+}: {
+  label: string;
+  value: number;
+  total?: boolean;
+}) {
   return (
-    <tr>
+    <tr className={total ? styles.total : undefined}>
       <th scope="row">{label}</th>
       <td>{`${formatGrams(value)} ${strings.gramsUnit}`}</td>
     </tr>
@@ -28,7 +36,11 @@ export function ResultsTable(props: ResultsTableProps) {
             <Row label={strings.water} value={props.result.water} />
             <Row label={strings.saltResult} value={props.result.salt} />
             <Row label={strings.yeastResult} value={props.result.yeast} />
-            <Row label={strings.totalWeight} value={props.result.totalWeight} />
+            <Row
+              label={strings.totalWeight}
+              value={props.result.totalWeight}
+              total
+            />
           </tbody>
         </table>
       ) : (
@@ -42,6 +54,7 @@ export function ResultsTable(props: ResultsTableProps) {
               <Row
                 label={strings.totalWeight}
                 value={props.result.totalWeight}
+                total
               />
             </tbody>
           </table>

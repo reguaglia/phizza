@@ -56,26 +56,28 @@ export function DoughForm({
 
       <fieldset className={styles.mode}>
         <legend>{strings.modeLabel}</legend>
-        <label className={styles.radio}>
-          <input
-            type="radio"
-            name="mode"
-            value="direct"
-            checked={mode === "direct"}
-            onChange={() => onModeChange("direct")}
-          />
-          {strings.modeDirect}
-        </label>
-        <label className={styles.radio}>
-          <input
-            type="radio"
-            name="mode"
-            value="sourdough"
-            checked={mode === "sourdough"}
-            onChange={() => onModeChange("sourdough")}
-          />
-          {strings.modeSourdough}
-        </label>
+        <div className={styles.modeOptions}>
+          <label className={styles.radio}>
+            <input
+              type="radio"
+              name="mode"
+              value="direct"
+              checked={mode === "direct"}
+              onChange={() => onModeChange("direct")}
+            />
+            {strings.modeDirect}
+          </label>
+          <label className={styles.radio}>
+            <input
+              type="radio"
+              name="mode"
+              value="sourdough"
+              checked={mode === "sourdough"}
+              onChange={() => onModeChange("sourdough")}
+            />
+            {strings.modeSourdough}
+          </label>
+        </div>
       </fieldset>
 
       {renderField("numberOfPizzas", strings.numberOfPizzas)}

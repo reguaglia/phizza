@@ -1,3 +1,8 @@
 .error {
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-error) 35%, transparent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--color-error) 8%, transparent);
   color: var(--color-error);
+  font-size: 0.9375rem;
 }
